@@ -1,28 +1,36 @@
 # Translations template for PROJECT.
-# Copyright (C) 2025 ORGANIZATION
+# Copyright (C) 2026 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-10 13:38+0530\n"
+"POT-Creation-Date: 2026-04-23 17:41+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
-#: app.py:171 app.py:255
+#: app.py:175
 msgid "No description available."
 msgstr ""
 
-#: app.py:172 app.py:256
+#: app.py:176
 msgid "Information not available."
+msgstr ""
+
+#: app.py:264
+msgid "No description available"
+msgstr ""
+
+#: app.py:265
+msgid "No conditions available"
 msgstr ""
 
 #: model.py:19
@@ -34,106 +42,106 @@ msgstr ""
 msgid "Found %(n)d missing values. Cleaning data..."
 msgstr ""
 
-#: model.py:43
+#: model.py:40
 msgid "Splitting data into training and testing sets..."
 msgstr ""
 
-#: model.py:46
+#: model.py:43
 msgid "Applying feature scaling..."
 msgstr ""
 
-#: model.py:55
+#: model.py:52
 msgid "Training Random Forest model with cross-validation..."
 msgstr ""
 
-#: model.py:58
+#: model.py:55
 #, python-format
 msgid "Cross Validation Scores: %(scores)s"
 msgstr ""
 
-#: model.py:59
+#: model.py:56
 #, python-format
 msgid "Mean CV Score: %(score).4f"
 msgstr ""
 
-#: model.py:61
+#: model.py:58
 msgid "Performing hyperparameter tuning..."
 msgstr ""
 
-#: model.py:73
+#: model.py:72
 #, python-format
 msgid "Best Parameters: %(params)s"
 msgstr ""
 
-#: model.py:74
+#: model.py:73
 #, python-format
 msgid "Best CV Score: %(score).4f"
 msgstr ""
 
-#: model.py:80
+#: model.py:79
 #, python-format
 msgid "Test Accuracy: %(acc).4f"
 msgstr ""
 
-#: model.py:81
+#: model.py:80
 msgid ""
 "\n"
 "Classification Report:"
 msgstr ""
 
-#: model.py:84
+#: model.py:83
 msgid ""
 "\n"
 "Feature Importances:"
 msgstr ""
 
-#: model.py:90
+#: model.py:89
 #, python-format
 msgid "%(name)s: %(imp).4f"
 msgstr ""
 
-#: model.py:92
+#: model.py:91
 msgid ""
 "\n"
 "Saving model and preprocessing objects..."
 msgstr ""
 
-#: model.py:98
+#: model.py:97
 msgid "Model training completed successfully!"
 msgstr ""
 
-#: model.py:114
+#: model.py:112
 msgid "Model artifacts not found. Training a new model..."
 msgstr ""
 
-#: model.py:129
+#: model.py:130
 msgid "Starting training via CLI..."
 msgstr ""
 
-#: model.py:143
+#: model.py:144
 msgid ""
 "\n"
 "Testing prediction with sample data:"
 msgstr ""
 
-#: model.py:149
+#: model.py:150
 #, python-format
 msgid ""
 "\n"
 "Test Case %(n)d:"
 msgstr ""
 
-#: model.py:150
+#: model.py:151
 #, python-format
 msgid "Input: %(inp)s"
 msgstr ""
 
-#: model.py:151
+#: model.py:152
 #, python-format
 msgid "Predicted Crop: %(crop)s"
 msgstr ""
 
-#: model.py:152
+#: model.py:153
 #, python-format
 msgid "Confidence: %(p).2f%%"
 msgstr ""
@@ -142,31 +150,32 @@ msgstr ""
 msgid "About - KRUSHIMITRA"
 msgstr ""
 
-#: templates/about.html:9 templates/data_insights.html:9
+#: templates/about.html:9
 msgid "breadcrumb"
 msgstr ""
 
-#: templates/about.html:11 templates/base.html:36 templates/base.html:72
-#: templates/data_insights.html:11
+#: templates/about.html:11 templates/base.html:39 templates/base.html:74
+#: templates/base_modern.html:480
 msgid "Home"
 msgstr ""
 
-#: templates/about.html:12 templates/base.html:42 templates/base.html:74
+#: templates/about.html:12 templates/base.html:45 templates/base.html:76
+#: templates/base_modern.html:482
 msgid "About"
 msgstr ""
 
-#: templates/about.html:19 templates/base.html:27 templates/base.html:59
+#: templates/about.html:19 templates/base.html:29 templates/base.html:62
 #: templates/index.html:21
 msgid "KRUSHIMITRA"
 msgstr ""
 
-#: templates/about.html:20 templates/about.html:248 templates/base.html:28
-#: templates/base.html:60 templates/index.html:22
+#: templates/about.html:20 templates/about.html:248 templates/base.html:30
+#: templates/base.html:63 templates/index.html:22
 msgid "जय जवान जय किसान"
 msgstr ""
 
-#: templates/about.html:21
-msgid "An EDA Project by Yash Raut"
+#: templates/about.html:21 templates/base.html:67
+msgid "An Agricultural Project by AISSMS IOIT Students"
 msgstr ""
 
 #: templates/about.html:28
@@ -349,7 +358,7 @@ msgid ""
 "samples with the following attributes:"
 msgstr ""
 
-#: templates/about.html:182
+#: templates/about.html:182 templates/index_modern.html:599
 msgid "Nitrogen (N)"
 msgstr ""
 
@@ -358,30 +367,36 @@ msgstr ""
 msgid "kg/ha"
 msgstr ""
 
-#: templates/about.html:186
+#: templates/about.html:186 templates/index_modern.html:609
 msgid "Phosphorus (P)"
 msgstr ""
 
-#: templates/about.html:190
+#: templates/about.html:190 templates/index_modern.html:619
 msgid "Potassium (K)"
 msgstr ""
 
-#: templates/about.html:194 templates/data_insights.html:138
-#: templates/index.html:133
+#: templates/about.html:194 templates/data_insights_blink.html:581
+#: templates/data_insights_blink.html:777 templates/index.html:133
+#: templates/index_modern.html:629 templates/recommend_blink.html:437
+#: templates/result.html:124 templates/result_modern.html:580
 msgid "Temperature"
 msgstr ""
 
-#: templates/about.html:198 templates/data_insights.html:139
+#: templates/about.html:198 templates/data_insights_blink.html:580
+#: templates/data_insights_blink.html:778 templates/index_modern.html:639
+#: templates/result.html:125 templates/result_modern.html:587
 msgid "Humidity"
 msgstr ""
 
-#: templates/about.html:202 templates/about.html:203
-#: templates/data_insights.html:140
+#: templates/about.html:202 templates/about.html:203 templates/result.html:126
+#: templates/result_modern.html:594
 msgid "pH"
 msgstr ""
 
-#: templates/about.html:206 templates/data_insights.html:141
-#: templates/index.html:162
+#: templates/about.html:206 templates/data_insights_blink.html:579
+#: templates/data_insights_blink.html:780 templates/index.html:162
+#: templates/index_modern.html:659 templates/recommend_blink.html:476
+#: templates/result.html:127 templates/result_modern.html:601
 msgid "Rainfall"
 msgstr ""
 
@@ -461,214 +476,146 @@ msgstr ""
 msgid "KRUSHIMITRA - Smart Crop Recommendation"
 msgstr ""
 
-#: templates/base.html:30
+#: templates/base.html:33
 msgid "Toggle navigation"
 msgstr ""
 
-#: templates/base.html:39 templates/base.html:73
-#: templates/data_insights.html:12
+#: templates/base.html:42 templates/base.html:75 templates/data_insights.html:3
+#: templates/data_insights_blink.html:6 templates/index_modern.html:551
 msgid "Data Insights"
 msgstr ""
 
-#: templates/base.html:61
+#: templates/base.html:64
 msgid ""
 "A machine learning-based crop recommendation system to help farmers make "
 "informed decisions."
 msgstr ""
 
-#: templates/base.html:64
-msgid "An EDA Project by Pranav Ladkat, Snehal Mane, and Pratik Khatke"
-msgstr ""
-
-#: templates/base.html:65
-msgid "AISSMS IOIT, Pune"
-msgstr ""
-
-#: templates/base.html:70
+#: templates/base.html:72
 msgid "Quick Links"
 msgstr ""
 
-#: templates/base.html:78
+#: templates/base.html:80
 msgid "API Access"
 msgstr ""
 
-#: templates/base.html:79
+#: templates/base.html:81
 msgid "Access our crop recommendation API for your agricultural applications."
 msgstr ""
 
-#: templates/base.html:80
+#: templates/base.html:82
 msgid "API Documentation"
 msgstr ""
 
-#: templates/base.html:85
+#: templates/base.html:87
 msgid "KRUSHIMITRA - Agricultural Recommendation System"
 msgstr ""
 
-#: templates/data_insights.html:3
-msgid "Data Insights - Crop Recommendation System"
+#: templates/base_modern.html:481
+msgid "Features"
 msgstr ""
 
-#: templates/data_insights.html:22
-msgid "Data Insights and Visualization"
+#: templates/base_modern.html:483
+msgid "Insights"
 msgstr ""
 
-#: templates/data_insights.html:26
-msgid ""
-"\n"
-"            Our model is trained on a dataset with 2200 samples across 22"
-" different crops.\n"
-"            Here are some key insights from the exploratory data "
-"analysis.\n"
-"            "
-msgstr ""
-
-#: templates/data_insights.html:41 templates/data_insights.html:47
-msgid "Crop Distribution"
-msgstr ""
-
-#: templates/data_insights.html:44
-msgid ""
-"The dataset contains an equal distribution of 22 different crops with 100"
-" samples for each crop type."
-msgstr ""
-
-#: templates/data_insights.html:57 templates/data_insights.html:63
-msgid "Feature Importance"
-msgstr ""
-
-#: templates/data_insights.html:60
-msgid ""
-"The relative importance of each feature in the Random Forest model "
-"prediction."
-msgstr ""
-
-#: templates/data_insights.html:76
-msgid "Parameter Distribution by Crop"
-msgstr ""
-
-#: templates/data_insights.html:85
-#, python-format
-msgid "%(p)s Content by Crop"
-msgstr ""
-
-#: templates/data_insights.html:89 templates/data_insights.html:108
-#, python-format
-msgid "%(p)s by Crop"
-msgstr ""
-
-#: templates/data_insights.html:104
-#, python-format
-msgid "%(p)s Requirements"
-msgstr ""
-
-#: templates/data_insights.html:126
-msgid "Statistical Summary"
-msgstr ""
-
-#: templates/data_insights.html:129
-msgid "Descriptive Statistics of Features"
-msgstr ""
-
-#: templates/data_insights.html:134
-msgid "Statistic"
-msgstr ""
-
-#: templates/data_insights.html:135
-msgid "N"
-msgstr ""
-
-#: templates/data_insights.html:136
-msgid "P"
-msgstr ""
-
-#: templates/data_insights.html:137
-msgid "K"
-msgstr ""
-
-#: templates/data_insights.html:146
-msgid "Mean"
-msgstr ""
-
-#: templates/data_insights.html:147
-msgid "Std"
-msgstr ""
-
-#: templates/data_insights.html:148
-msgid "Min"
-msgstr ""
-
-#: templates/data_insights.html:152
-msgid "Max"
-msgstr ""
-
-#: templates/data_insights.html:173
+#: templates/data_insights.html:9
 msgid "Model Performance"
 msgstr ""
 
-#: templates/data_insights.html:176
-msgid "Classification Metrics"
+#: templates/data_insights.html:13
+msgid "Accuracy:"
 msgstr ""
 
-#: templates/data_insights.html:180
-msgid "Accuracy"
+#: templates/data_insights.html:14
+msgid "Precision:"
 msgstr ""
 
-#: templates/data_insights.html:181
-msgid "Cross-Validation Score"
+#: templates/data_insights.html:15
+msgid "Recall:"
 msgstr ""
 
-#: templates/data_insights.html:182
-msgid "Precision (Macro Avg)"
+#: templates/data_insights.html:16
+msgid "F1 Score:"
 msgstr ""
 
-#: templates/data_insights.html:183
-msgid "Recall (Macro Avg)"
+#: templates/data_insights.html:18
+msgid "These metrics are calculated on the test dataset using cross-validation."
 msgstr ""
 
-#: templates/data_insights.html:184
-msgid "F1-Score (Macro Avg)"
+#: templates/data_insights.html:24
+msgid "Statistical Summary"
 msgstr ""
 
-#: templates/data_insights.html:189
-msgid "Hyperparameters"
+#: templates/data_insights.html:30
+msgid "Feature"
 msgstr ""
 
-#: templates/data_insights.html:193
-msgid "Algorithm"
+#: templates/data_insights.html:31
+msgid "Mean"
 msgstr ""
 
-#: templates/data_insights.html:193
-msgid "Random Forest Classifier"
+#: templates/data_insights.html:32
+msgid "Std Dev"
 msgstr ""
 
-#: templates/data_insights.html:194
-msgid "n_estimators"
+#: templates/data_insights.html:33
+msgid "Min"
 msgstr ""
 
-#: templates/data_insights.html:195
-msgid "max_depth"
+#: templates/data_insights.html:34
+msgid "Max"
 msgstr ""
 
-#: templates/data_insights.html:196
-msgid "min_samples_split"
+#: templates/data_insights.html:61
+msgid "Summary statistics are based on the training dataset."
 msgstr ""
 
-#: templates/data_insights.html:197
-msgid "min_samples_leaf"
+#: templates/data_insights_blink.html:387
+msgid "Soil & Climate Insights"
 msgstr ""
 
-#: templates/data_insights.html:211
-msgid "Feature Correlations"
+#: templates/data_insights_blink.html:388
+msgid "Statistical summary of environmental parameters in the training dataset"
 msgstr ""
 
-#: templates/data_insights.html:214
-msgid ""
-"Correlation matrix showing the relationships between different soil and "
-"climate parameters."
+#: templates/data_insights_blink.html:482
+msgid "Data Insights & Analytics"
 msgstr ""
 
-#: templates/data_insights.html:217
-msgid "Feature Correlation Matrix"
+#: templates/data_insights_blink.html:483
+msgid "Understand soil, climate and model performance at a glance"
+msgstr ""
+
+#: templates/data_insights_blink.html:544
+#: templates/data_insights_blink.html:588
+msgid "Feature Importance"
+msgstr ""
+
+#: templates/data_insights_blink.html:545
+msgid "Most influential factors for crop recommendation"
+msgstr ""
+
+#: templates/data_insights_blink.html:582
+#: templates/data_insights_blink.html:776 templates/result.html:123
+#: templates/result_modern.html:573
+msgid "Potassium"
+msgstr ""
+
+#: templates/data_insights_blink.html:583
+#: templates/data_insights_blink.html:775 templates/result.html:122
+#: templates/result_modern.html:566
+msgid "Phosphorus"
+msgstr ""
+
+#: templates/data_insights_blink.html:584
+#: templates/data_insights_blink.html:774 templates/result.html:121
+#: templates/result_modern.html:559
+msgid "Nitrogen"
+msgstr ""
+
+#: templates/data_insights_blink.html:783
+msgid "Importance"
 msgstr ""
 
 #: templates/error.html:3
@@ -679,7 +626,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: templates/error.html:21
+#: templates/error.html:21 templates/error_modern.html:243
 msgid "Oops! Something went wrong"
 msgstr ""
 
@@ -687,11 +634,11 @@ msgstr ""
 msgid "We encountered an error while processing your request."
 msgstr ""
 
-#: templates/error.html:26
+#: templates/error.html:26 templates/error_modern.html:249
 msgid "Error Details:"
 msgstr ""
 
-#: templates/error.html:31
+#: templates/error.html:31 templates/error_modern.html:257
 msgid "What you can try:"
 msgstr ""
 
@@ -703,16 +650,42 @@ msgstr ""
 msgid "Make sure all fields are filled out correctly"
 msgstr ""
 
-#: templates/error.html:35
+#: templates/error.html:35 templates/error_modern.html:270
 msgid "Try refreshing the page and submitting the form again"
 msgstr ""
 
-#: templates/error.html:40
+#: templates/error.html:40 templates/error_modern.html:281
 msgid "Back to Home"
 msgstr ""
 
-#: templates/error.html:41
+#: templates/error.html:41 templates/error_modern.html:284
 msgid "Go Back"
+msgstr ""
+
+#: templates/error_modern.html:3
+msgid "Error - KRUSHIMITRA"
+msgstr ""
+
+#: templates/error_modern.html:244
+msgid ""
+"We encountered an error while processing your request. Don't worry, we're"
+" here to help!"
+msgstr ""
+
+#: templates/error_modern.html:262
+msgid "Ensure all input fields contain valid values within the specified ranges"
+msgstr ""
+
+#: templates/error_modern.html:266
+msgid "Double-check that all required fields are filled out"
+msgstr ""
+
+#: templates/error_modern.html:274
+msgid "Clear your browser cache and cookies"
+msgstr ""
+
+#: templates/error_modern.html:287
+msgid "Refresh Page"
 msgstr ""
 
 #: templates/index.html:3
@@ -723,11 +696,12 @@ msgstr ""
 msgid "An AI-powered crop recommendation system to empower Indian farmers"
 msgstr ""
 
-#: templates/index.html:24
+#: templates/index.html:24 templates/index_blink.html:500
+#: templates/index_modern.html:476
 msgid "Get Started"
 msgstr ""
 
-#: templates/index.html:31
+#: templates/index.html:31 templates/index_blink.html:522
 msgid "Smart Crop Recommendation"
 msgstr ""
 
@@ -748,10 +722,11 @@ msgid ""
 msgstr ""
 
 #: templates/index.html:43 templates/index.html:172
+#: templates/recommend_blink.html:486
 msgid "Get Crop Recommendation"
 msgstr ""
 
-#: templates/index.html:44
+#: templates/index.html:44 templates/index_blink.html:506
 msgid "View Data Insights"
 msgstr ""
 
@@ -787,15 +762,15 @@ msgstr ""
 msgid "Get personalized crop suggestions with confidence score"
 msgstr ""
 
-#: templates/index.html:97
+#: templates/index.html:97 templates/recommend_blink.html:380
 msgid "Crop Recommendation Form"
 msgstr ""
 
-#: templates/index.html:103
+#: templates/index.html:103 templates/recommend_blink.html:392
 msgid "Nitrogen (N) Content"
 msgstr ""
 
-#: templates/index.html:108
+#: templates/index.html:108 templates/recommend_blink.html:402
 msgid "Range: 0-140 kg/ha"
 msgstr ""
 
@@ -803,11 +778,11 @@ msgstr ""
 msgid "Please enter a valid nitrogen value."
 msgstr ""
 
-#: templates/index.html:112
+#: templates/index.html:112 templates/recommend_blink.html:411
 msgid "Phosphorus (P) Content"
 msgstr ""
 
-#: templates/index.html:117
+#: templates/index.html:117 templates/recommend_blink.html:415
 msgid "Range: 5-145 kg/ha"
 msgstr ""
 
@@ -815,11 +790,11 @@ msgstr ""
 msgid "Please enter a valid phosphorus value."
 msgstr ""
 
-#: templates/index.html:124
+#: templates/index.html:124 templates/recommend_blink.html:424
 msgid "Potassium (K) Content"
 msgstr ""
 
-#: templates/index.html:129
+#: templates/index.html:129 templates/recommend_blink.html:428
 msgid "Range: 5-205 kg/ha"
 msgstr ""
 
@@ -831,7 +806,7 @@ msgstr ""
 msgid "°C"
 msgstr ""
 
-#: templates/index.html:138
+#: templates/index.html:138 templates/recommend_blink.html:441
 msgid "Range: 8.8-43.7 °C"
 msgstr ""
 
@@ -839,7 +814,7 @@ msgstr ""
 msgid "Please enter a valid temperature value."
 msgstr ""
 
-#: templates/index.html:145
+#: templates/index.html:145 templates/recommend_blink.html:450
 msgid "Relative Humidity"
 msgstr ""
 
@@ -847,11 +822,12 @@ msgstr ""
 msgid "Please enter a valid humidity value."
 msgstr ""
 
-#: templates/index.html:154
+#: templates/index.html:154 templates/index_modern.html:649
+#: templates/recommend_blink.html:463
 msgid "pH Value"
 msgstr ""
 
-#: templates/index.html:156
+#: templates/index.html:156 templates/recommend_blink.html:467
 msgid "Range: 3.5-10 pH"
 msgstr ""
 
@@ -859,7 +835,7 @@ msgstr ""
 msgid "Please enter a valid pH value."
 msgstr ""
 
-#: templates/index.html:167
+#: templates/index.html:167 templates/recommend_blink.html:480
 msgid "Range: 20.2-298.6 mm"
 msgstr ""
 
@@ -867,11 +843,320 @@ msgstr ""
 msgid "Please enter a valid rainfall value."
 msgstr ""
 
-#: templates/index.html:173
+#: templates/index.html:173 templates/recommend_blink.html:497
 msgid "Reset Form"
 msgstr ""
 
 #: templates/index.html:184
 msgid "Our system can recommend these crops based on your inputs:"
+msgstr ""
+
+#: templates/index_blink.html:489
+msgid "AI-Powered Crop Recommendation"
+msgstr ""
+
+#: templates/index_blink.html:495
+msgid ""
+"An AI-powered crop recommendation system to empower Indian farmers with "
+"smart, data-driven agricultural decisions"
+msgstr ""
+
+#: templates/index_blink.html:524
+msgid ""
+"\n"
+"Our AI-powered system analyzes soil composition and environmental factors"
+" to\n"
+"recommend the optimal crop for your field.\n"
+"                        "
+msgstr ""
+
+#: templates/index_blink.html:537
+msgid "Data-Driven Insights"
+msgstr ""
+
+#: templates/index_blink.html:539
+msgid ""
+"\n"
+"Access comprehensive analytics and insights about soil conditions, "
+"weather patterns, and\n"
+"crop performance.\n"
+"                        "
+msgstr ""
+
+#: templates/index_blink.html:552
+msgid "Sustainable Farming"
+msgstr ""
+
+#: templates/index_blink.html:554
+msgid ""
+"\n"
+"Promote eco-friendly farming practices with recommendations that optimize"
+" yield while\n"
+"preserving soil health.\n"
+"                        "
+msgstr ""
+
+#: templates/index_modern.html:470
+msgid "AI-Powered"
+msgstr ""
+
+#: templates/index_modern.html:471
+msgid "Crop Recommendations"
+msgstr ""
+
+#: templates/index_modern.html:473
+msgid ""
+"Transform your farming with intelligent crop predictions based on soil "
+"and climate data"
+msgstr ""
+
+#: templates/index_modern.html:479
+msgid "Learn More"
+msgstr ""
+
+#: templates/index_modern.html:488
+msgid "Your Smart Farming Companion"
+msgstr ""
+
+#: templates/index_modern.html:493
+msgid "Accuracy"
+msgstr ""
+
+#: templates/index_modern.html:497
+msgid "Crops"
+msgstr ""
+
+#: templates/index_modern.html:501
+msgid "Farmers"
+msgstr ""
+
+#: templates/index_modern.html:515
+msgid "Why Choose KRUSHIMITRA?"
+msgstr ""
+
+#: templates/index_modern.html:516
+msgid "Advanced features designed for modern farming"
+msgstr ""
+
+#: templates/index_modern.html:523
+msgid "AI Intelligence"
+msgstr ""
+
+#: templates/index_modern.html:524
+msgid ""
+"Machine learning algorithms analyze multiple parameters for accurate "
+"predictions"
+msgstr ""
+
+#: templates/index_modern.html:530
+msgid "Profit Analysis"
+msgstr ""
+
+#: templates/index_modern.html:531
+msgid "Get ROI calculations and market price insights for better decisions"
+msgstr ""
+
+#: templates/index_modern.html:537
+msgid "Multi-Language"
+msgstr ""
+
+#: templates/index_modern.html:538
+msgid "Available in English, Hindi, and Marathi for wider accessibility"
+msgstr ""
+
+#: templates/index_modern.html:544
+msgid "Mobile Ready"
+msgstr ""
+
+#: templates/index_modern.html:545
+msgid "Access from any device, anywhere, anytime"
+msgstr ""
+
+#: templates/index_modern.html:552
+msgid "Comprehensive analysis based on extensive agricultural data"
+msgstr ""
+
+#: templates/index_modern.html:558
+msgid "Reliable"
+msgstr ""
+
+#: templates/index_modern.html:559
+msgid "Trusted recommendations backed by scientific research"
+msgstr ""
+
+#: templates/index_modern.html:569
+msgid "% Accuracy"
+msgstr ""
+
+#: templates/index_modern.html:573
+msgid "Crop Types"
+msgstr ""
+
+#: templates/index_modern.html:577
+msgid "+ Happy Farmers"
+msgstr ""
+
+#: templates/index_modern.html:581
+msgid "Parameters Analyzed"
+msgstr ""
+
+#: templates/index_modern.html:591
+msgid "Get Your Crop Recommendation"
+msgstr ""
+
+#: templates/index_modern.html:592
+msgid "Enter your soil and climate data for AI-powered suggestions"
+msgstr ""
+
+#: templates/index_modern.html:669
+msgid "Get Recommendation"
+msgstr ""
+
+#: templates/index_modern.html:672
+msgid "Reset"
+msgstr ""
+
+#: templates/recommend_blink.html:381
+msgid ""
+"Enter your soil and environmental parameters to get personalized crop "
+"recommendations."
+msgstr ""
+
+#: templates/recommend_blink.html:454
+msgid "Range: 14.3-100 %"
+msgstr ""
+
+#: templates/recommend_blink.html:495
+msgid "Voice Input"
+msgstr ""
+
+#: templates/result.html:3
+msgid "KRUSHIMITRA - Crop Recommendation Result"
+msgstr ""
+
+#: templates/result.html:103
+#, python-format
+msgid "%(conf)s%%%% Confidence"
+msgstr ""
+
+#: templates/result.html:108
+msgid "is the best crop for your conditions!"
+msgstr ""
+
+#: templates/result.html:112
+#, python-format
+msgid "About %(crop)s"
+msgstr ""
+
+#: templates/result.html:114
+msgid "Ideal Growing Conditions"
+msgstr ""
+
+#: templates/result.html:119 templates/result_modern.html:552
+msgid "Your Input Parameters"
+msgstr ""
+
+#: templates/result.html:132
+msgid "Farming Tips"
+msgstr ""
+
+#: templates/result.html:133
+#, python-format
+msgid ""
+"Maintaining proper soil health can increase crop yields by up to 30%%, "
+"reducing the need for fertilizers."
+msgstr ""
+
+#: templates/result.html:134
+msgid ""
+"Rotating crops can reduce pest problems, improve soil fertility, and "
+"increase overall farm productivity."
+msgstr ""
+
+#: templates/result.html:135
+#, python-format
+msgid ""
+"Drip irrigation can save up to 60%% more water compared to traditional "
+"flooding methods."
+msgstr ""
+
+#: templates/result.html:136
+msgid "Use organic compost to improve soil structure and nutrient content."
+msgstr ""
+
+#: templates/result.html:137
+msgid "Monitor weather forecasts to plan irrigation and fertilizer application."
+msgstr ""
+
+#: templates/result.html:141
+msgid "Try Another Prediction"
+msgstr ""
+
+#: templates/result.html:142 templates/result_modern.html:657
+msgid "Print Results"
+msgstr ""
+
+#: templates/result_modern.html:3
+msgid "Crop Recommendation Results - KRUSHIMITRA"
+msgstr ""
+
+#: templates/result_modern.html:470
+msgid "Your Crop Recommendation is Ready!"
+msgstr ""
+
+#: templates/result_modern.html:480
+msgid "Confidence"
+msgstr ""
+
+#: templates/result_modern.html:501
+msgid "About This Crop"
+msgstr ""
+
+#: templates/result_modern.html:514
+msgid "Ideal Conditions"
+msgstr ""
+
+#: templates/result_modern.html:526
+msgid "Expected Returns"
+msgstr ""
+
+#: templates/result_modern.html:531
+msgid "Gross Income"
+msgstr ""
+
+#: templates/result_modern.html:535
+msgid "Net Profit"
+msgstr ""
+
+#: templates/result_modern.html:542
+msgid "MSP Protected"
+msgstr ""
+
+#: templates/result_modern.html:610
+msgid "Smart Farming Tips"
+msgstr ""
+
+#: templates/result_modern.html:618
+msgid "Prepare your soil properly before planting for optimal crop growth"
+msgstr ""
+
+#: templates/result_modern.html:626
+msgid "Implement efficient irrigation methods to conserve water and reduce costs"
+msgstr ""
+
+#: templates/result_modern.html:634
+msgid "Monitor market prices regularly to maximize your profits"
+msgstr ""
+
+#: templates/result_modern.html:642
+msgid "Use organic pest control methods when possible for sustainable farming"
+msgstr ""
+
+#: templates/result_modern.html:651
+msgid "New Prediction"
+msgstr ""
+
+#: templates/result_modern.html:654
+msgid "View Insights"
 msgstr ""
 

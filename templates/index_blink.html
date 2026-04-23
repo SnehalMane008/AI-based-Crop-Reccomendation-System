@@ -486,7 +486,7 @@
                     <svg style="width: 24px; height: 24px; color: var(--primary-green);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
-                    <span style="color: var(--text-secondary); font-weight: 500;">AI-Powered Crop Recommendation</span>
+                    <span style="color: var(--text-secondary); font-weight: 500;">{{ _('AI-Powered Crop Recommendation') }}</span>
                 </div>
                 
                 <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem;">KRUSHIMITRA</h1>
@@ -497,13 +497,13 @@
                 
                 <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; animation: fadeInUp 1.4s ease;">
                     <a href="/recommend" class="cta-button" style="text-decoration: none;">
-                        Get Started
+                        {{ _('Get Started') }}
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                         </svg>
                     </a>
                     <a href="/insights" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: transparent; color: var(--text-secondary); border: 2px solid var(--border); border-radius: var(--radius-md); font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none;">
-                        View Data Insights
+                        {{ _('View Data Insights') }}
                     </a>
                 </div>
             </div>
@@ -519,10 +519,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="feature-card-title">Smart Crop Recommendation</h3>
+                    <h3 class="feature-card-title">{{ _('Smart Crop Recommendation') }}</h3>
                     <p class="feature-card-description">
-                        Our AI-powered system analyzes soil composition and environmental factors to
-                        recommend the optimal crop for your field.
+                        {% trans %}
+Our AI-powered system analyzes soil composition and environmental factors to
+recommend the optimal crop for your field.
+                        {% endtrans %}
                     </p>
                 </div>
 
@@ -532,10 +534,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                         </svg>
                     </div>
-                    <h3 class="feature-card-title">Data-Driven Insights</h3>
+                    <h3 class="feature-card-title">{{ _('Data-Driven Insights') }}</h3>
                     <p class="feature-card-description">
-                        Access comprehensive analytics and insights about soil conditions, weather patterns, and
-                        crop performance.
+                        {% trans %}
+Access comprehensive analytics and insights about soil conditions, weather patterns, and
+crop performance.
+                        {% endtrans %}
                     </p>
                 </div>
 
@@ -545,10 +549,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="feature-card-title">Sustainable Farming</h3>
+                    <h3 class="feature-card-title">{{ _('Sustainable Farming') }}</h3>
                     <p class="feature-card-description">
-                        Promote eco-friendly farming practices with recommendations that optimize yield while
-                        preserving soil health.
+                        {% trans %}
+Promote eco-friendly farming practices with recommendations that optimize yield while
+preserving soil health.
+                        {% endtrans %}
                     </p>
                 </div>
             </div>

@@ -117,12 +117,12 @@ def predict_crop(N, P, K, temperature, humidity, ph, rainfall):
     features_scaled = std_scaler.transform(features_minmax)
 
     # Get scalar prediction and probability vector for the single sample
-    prediction = model.predict(features_scaled)           # (n_samples,) -> scalar [2][3]
-    probabilities = model.predict_proba(features_scaled)  # (n_samples, n_classes) -> (n_classes,) [2][3]
-    max_prob = float(np.max(probabilities)) * 100.0          # ensure Python float for formatting [4]
+    prediction = model.predict(features_scaled)           # (n_samples,) array
+    probabilities = model.predict_proba(features_scaled)  # (n_samples, n_classes) array
+    max_prob = float(np.max(probabilities)) * 100.0          # ensure Python float for formatting
 
-# Look up crop name with an int key from the inverse mapping
-    crop_name = crop_labels[int(prediction)]  
+    # Look up crop name with an int key from the inverse mapping
+    crop_name = crop_labels[int(prediction[0])]  # Extract scalar from prediction array  
 
     return crop_name, max_prob
 
