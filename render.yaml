@@ -1,0 +1,31 @@
+services:
+  # Main Application Service
+  - type: web
+    name: krushimitra-app
+    env: docker
+    plan: free # Change to 'starter' if you want persistent disks
+    region: singapore # Choose closest to you
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: MLFLOW_TRACKING_URI
+        fromService:
+          type: web
+          name: krushimitra-mlflow
+          property: host
+    healthCheckPath: /
+
+  # MLflow Tracking Server
+  - type: web
+    name: krushimitra-mlflow
+    env: docker
+    dockerfile: Dockerfile.mlflow
+    plan: free
+    region: singapore
+    envVars:
+      - key: PORT
+        value: 10000
+    healthCheckPath: /health
+
+# Note: For persistent MLflow data, Render requires a paid plan
+# and the addition of a 'disks' section below.

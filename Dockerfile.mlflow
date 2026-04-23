@@ -1,0 +1,9 @@
+FROM python:3.10-slim
+
+WORKDIR /mlflow
+
+RUN pip install mlflow sqlalchemy boto3
+
+EXPOSE 10000
+
+CMD ["sh", "-c", "mlflow server --host 0.0.0.0 --port $PORT --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns"]
