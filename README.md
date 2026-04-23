@@ -72,13 +72,6 @@ Before running the application, you need to add the following high-resolution im
 2. Crop images in the `static/img/crops/` directory
 3. Team member photos
 
-## Project Team
-
-- **Pranav Ladkat** - Team Lead & ML Engineer
-- **Snehal Mane** - Data Scientist & Backend Developer
-- **Pratik Khatke** - UI/UX Designer & Frontend Developer
-
-*AISSMS Institute of Information Technology, Pune*
 
 ## Project Structure
 
