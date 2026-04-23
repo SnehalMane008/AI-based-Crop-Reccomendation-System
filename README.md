@@ -1,7 +1,6 @@
 # KRUSHIMITRA - Smart Crop Recommendation System
 
 **जय जवान जय किसान**  
-*An EDA Project by Students of AISSMS IOIT, Pune*
 
 ## Project Overview
 
