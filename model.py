@@ -9,6 +9,44 @@ from sklearn.metrics import accuracy_score, classification_report
 import joblib
 import warnings
 
+# model.py - add MLflow tracking
+import mlflow
+import mlflow.sklearn
+
+def train_crop_recommendation_model():
+    mlflow.set_experiment("crop-recommendation")
+    
+    with mlflow.start_run(run_name="random-forest-v1"):
+        # Log parameters
+        mlflow.log_param("n_estimators", best_params["n_estimators"])
+        mlflow.log_param("max_depth", best_params["max_depth"])
+        mlflow.log_param("test_size", 0.2)
+        mlflow.log_param("random_state", 42)
+        
+        # Log metrics
+        mlflow.log_metric("test_accuracy", test_accuracy)
+        mlflow.log_metric("cv_mean_score", cv_scores.mean())
+        mlflow.log_metric("cv_std_score", cv_scores.std())
+        
+        # Log the model itself
+        mlflow.sklearn.log_model(best_model, "model")
+        
+        # Log feature importances as artifact
+        importances_df = pd.DataFrame({
+            "feature": X.columns,
+            "importance": best_model.feature_importances_
+        }).sort_values("importance", ascending=False)
+        importances_df.to_csv("feature_importances.csv", index=False)
+        mlflow.log_artifact("feature_importances.csv")
+        
+        # Log data stats
+        mlflow.log_param("train_samples", len(X_train))
+        mlflow.log_param("test_samples", len(X_test))
+        mlflow.log_param("num_classes", len(crop_dict))
+    
+    return best_model, minmax, std_scaler, inverse_crop_dict
+
+
 # i18n: use Flask-Babel's gettext for user-facing messages
 from flask_babel import gettext as _
 
@@ -98,12 +136,11 @@ def train_crop_recommendation_model():
     return best_model, minmax, std_scaler, inverse_crop_dict
 
 def predict_crop(N, P, K, temperature, humidity, ph, rainfall):
-    """
-    Predict the recommended crop based on soil and climate parameters.
-    Returns:
-        Tuple(str, float): Recommended crop name, Confidence %
-    """
     try:
+        # Try loading from MLflow registry first
+        model = mlflow.sklearn.load_model("models:/CropRecommender/Production")
+    except Exception:
+        # Fallback to pkl
         model = joblib.load('crop_recommendation_model.pkl')
         minmax = joblib.load('minmax_scaler.pkl')
         std_scaler = joblib.load('standard_scaler.pkl')

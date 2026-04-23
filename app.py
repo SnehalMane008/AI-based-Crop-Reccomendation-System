@@ -153,6 +153,9 @@ def home():
         session['lang'] = lang
     # Page content is translated in templates
     return render_template('index_blink.html')
+from monitoring.monitor import PredictionLogger
+
+prediction_logger = PredictionLogger()
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -171,6 +174,13 @@ def predict():
             crop_name, confidence = predict_crop(N, P, K, temperature, humidity, ph, rainfall)
             predicted_crop = crop_name.lower()
 
+            prediction_logger.log(
+                inputs={"N": N, "P": P, "K": K, "temperature": temperature,
+                
+                "humidity": humidity, "ph": ph, "rainfall": rainfall},
+                prediction=crop_name,
+                confidence=confidence
+            )
             # 3) Get crop information with translated fallbacks (use gettext inside handlers)
             crop_description = CROP_INFO.get(predicted_crop, {}).get('description', _('No description available.'))
             ideal_conditions = CROP_INFO.get(predicted_crop, {}).get('ideal_conditions', _('Information not available.'))
