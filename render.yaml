@@ -19,7 +19,7 @@ services:
   - type: web
     name: krushimitra-mlflow
     env: docker
-    dockerfile: Dockerfile.mlflow
+    #dockerfile: Dockerfile.mlflow
     plan: free
     region: singapore
     envVars:
