@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - "5000:5000"
+      - "5002:5001"
     volumes:
       - ./monitoring:/app/monitoring
       - ./data:/app/data
@@ -18,7 +18,7 @@ services:
   mlflow:
     image: python:3.10-slim
     ports:
-      - "5001:5001"
+      - "5003:5001"
     volumes:
       - ./mlruns:/mlflow/mlruns
     command: >

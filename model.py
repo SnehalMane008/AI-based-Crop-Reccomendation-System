@@ -9,60 +9,28 @@ from sklearn.metrics import accuracy_score, classification_report
 import joblib
 import warnings
 
-# model.py - add MLflow tracking
-import mlflow
-import mlflow.sklearn
-
-def train_crop_recommendation_model():
-    mlflow.set_experiment("crop-recommendation")
-    
-    with mlflow.start_run(run_name="random-forest-v1"):
-        # Log parameters
-        mlflow.log_param("n_estimators", best_params["n_estimators"])
-        mlflow.log_param("max_depth", best_params["max_depth"])
-        mlflow.log_param("test_size", 0.2)
-        mlflow.log_param("random_state", 42)
-        
-        # Log metrics
-        mlflow.log_metric("test_accuracy", test_accuracy)
-        mlflow.log_metric("cv_mean_score", cv_scores.mean())
-        mlflow.log_metric("cv_std_score", cv_scores.std())
-        
-        # Log the model itself
-        mlflow.sklearn.log_model(best_model, "model")
-        
-        # Log feature importances as artifact
-        importances_df = pd.DataFrame({
-            "feature": X.columns,
-            "importance": best_model.feature_importances_
-        }).sort_values("importance", ascending=False)
-        importances_df.to_csv("feature_importances.csv", index=False)
-        mlflow.log_artifact("feature_importances.csv")
-        
-        # Log data stats
-        mlflow.log_param("train_samples", len(X_train))
-        mlflow.log_param("test_samples", len(X_test))
-        mlflow.log_param("num_classes", len(crop_dict))
-    
-    return best_model, minmax, std_scaler, inverse_crop_dict
-
-
-# i18n: use Flask-Babel's gettext for user-facing messages
-from flask_babel import gettext as _
-
 warnings.filterwarnings('ignore')
+
+# Optional MLflow import – used only when explicitly called
+try:
+    import mlflow
+    import mlflow.sklearn
+    MLFLOW_AVAILABLE = True
+except ImportError:
+    MLFLOW_AVAILABLE = False
+
 
 def train_crop_recommendation_model():
     """Train and save the crop recommendation model."""
-    print(_("Loading dataset..."))
+    print("Loading dataset...")
     crop = pd.read_csv("Crop_recommendation.csv")
 
     # Check for missing values
     if crop.isnull().sum().sum() > 0:
-        print(_("Found %(n)d missing values. Cleaning data...", n=int(crop.isnull().sum().sum())))
+        print(f"Found {int(crop.isnull().sum().sum())} missing values. Cleaning data...")
         crop = crop.dropna()
 
-    # Create label encoding for 12 available crops (keys are programmatic; do not translate)
+    # Create label encoding for 12 available crops
     crop_dict = {
         'rice': 1, 'maize': 2, 'chickpea': 3, 'banana': 4, 'mango': 5, 'grapes': 6,
         'watermelon': 7, 'apple': 8, 'orange': 9, 'cotton': 10, 'jute': 11, 'coffee': 12
@@ -75,10 +43,10 @@ def train_crop_recommendation_model():
     X = crop.drop('label', axis=1)
     y = crop['label']
 
-    print(_("Splitting data into training and testing sets..."))
+    print("Splitting data into training and testing sets...")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    print(_("Applying feature scaling..."))
+    print("Applying feature scaling...")
     minmax = MinMaxScaler()
     X_train_minmax = minmax.fit_transform(X_train)
     X_test_minmax = minmax.transform(X_test)
@@ -87,13 +55,13 @@ def train_crop_recommendation_model():
     X_train_scaled = std_scaler.fit_transform(X_train_minmax)
     X_test_scaled = std_scaler.transform(X_test_minmax)
 
-    print(_("Training Random Forest model with cross-validation..."))
+    print("Training Random Forest model with cross-validation...")
     base_model = RandomForestClassifier(random_state=42)
     cv_scores = cross_val_score(base_model, X_train_scaled, y_train, cv=5)
-    print(_("Cross Validation Scores: %(scores)s", scores=cv_scores))
-    print(_("Mean CV Score: %(score).4f", score=cv_scores.mean()))
+    print(f"Cross Validation Scores: {cv_scores}")
+    print(f"Mean CV Score: {cv_scores.mean():.4f}")
 
-    print(_("Performing hyperparameter tuning..."))
+    print("Performing hyperparameter tuning...")
     param_grid = {
         'n_estimators': [100, 200, 300],
         'max_depth': [15, 25, 35, None],
@@ -107,64 +75,105 @@ def train_crop_recommendation_model():
                                param_grid, cv=5, n_jobs=-1)
     grid_search.fit(X_train_scaled, y_train)
 
-    print(_("Best Parameters: %(params)s", params=grid_search.best_params_))
-    print(_("Best CV Score: %(score).4f", score=grid_search.best_score_))
+    best_params = grid_search.best_params_
+    print(f"Best Parameters: {best_params}")
+    print(f"Best CV Score: {grid_search.best_score_:.4f}")
 
     best_model = grid_search.best_estimator_
 
     y_pred = best_model.predict(X_test_scaled)
     test_accuracy = accuracy_score(y_test, y_pred)
-    print(_("Test Accuracy: %(acc).4f", acc=test_accuracy))
-    print(_("\nClassification Report:"))
+    print(f"Test Accuracy: {test_accuracy:.4f}")
+    print("\nClassification Report:")
     print(classification_report(y_test, y_pred))
 
-    print(_("\nFeature Importances:"))
+    print("\nFeature Importances:")
     feature_names = X.columns
     importances = best_model.feature_importances_
     indices = np.argsort(importances)[::-1]
 
     for i in range(len(feature_names)):
-        print(_("%(name)s: %(imp).4f", name=feature_names[indices[i]], imp=importances[indices[i]]))
+        print(f"{feature_names[indices[i]]}: {importances[indices[i]]:.4f}")
 
-    print(_("\nSaving model and preprocessing objects..."))
+    # Optional: log to MLflow if available
+    if MLFLOW_AVAILABLE:
+        try:
+            mlflow.set_experiment("crop-recommendation")
+            with mlflow.start_run(run_name="random-forest-v1"):
+                mlflow.log_param("n_estimators", best_params["n_estimators"])
+                mlflow.log_param("max_depth", best_params["max_depth"])
+                mlflow.log_param("test_size", 0.2)
+                mlflow.log_param("random_state", 42)
+                mlflow.log_metric("test_accuracy", test_accuracy)
+                mlflow.log_metric("cv_mean_score", cv_scores.mean())
+                mlflow.log_metric("cv_std_score", cv_scores.std())
+                mlflow.sklearn.log_model(best_model, "model")
+
+                importances_df = pd.DataFrame({
+                    "feature": X.columns,
+                    "importance": best_model.feature_importances_
+                }).sort_values("importance", ascending=False)
+                importances_df.to_csv("feature_importances.csv", index=False)
+                mlflow.log_artifact("feature_importances.csv")
+
+                mlflow.log_param("train_samples", len(X_train))
+                mlflow.log_param("test_samples", len(X_test))
+                mlflow.log_param("num_classes", len(crop_dict))
+        except Exception as e:
+            print(f"MLflow logging skipped: {e}")
+
+    print("\nSaving model and preprocessing objects...")
     joblib.dump(best_model, 'crop_recommendation_model.pkl')
     joblib.dump(minmax, 'minmax_scaler.pkl')
     joblib.dump(std_scaler, 'standard_scaler.pkl')
     joblib.dump(inverse_crop_dict, 'crop_labels.pkl')
 
-    print(_("Model training completed successfully!"))
+    print("Model training completed successfully!")
     return best_model, minmax, std_scaler, inverse_crop_dict
 
+
 def predict_crop(N, P, K, temperature, humidity, ph, rainfall):
-    try:
-        # Try loading from MLflow registry first
-        model = mlflow.sklearn.load_model("models:/CropRecommender/Production")
-    except Exception:
-        # Fallback to pkl
-        model = joblib.load('crop_recommendation_model.pkl')
-        minmax = joblib.load('minmax_scaler.pkl')
-        std_scaler = joblib.load('standard_scaler.pkl')
-        crop_labels = joblib.load('crop_labels.pkl')
-    except FileNotFoundError:
-        print(_("Model artifacts not found. Training a new model..."))
-        model, minmax, std_scaler, crop_labels = train_crop_recommendation_model()
+    """Predict the best crop given soil and weather parameters."""
+    model = None
+    minmax = None
+    std_scaler = None
+    crop_labels = None
+
+    # Try loading from MLflow registry first
+    if MLFLOW_AVAILABLE:
+        try:
+            model = mlflow.sklearn.load_model("models:/CropRecommender/Production")
+        except Exception:
+            pass  # fall through to pkl loading
+
+    # Fallback to pkl files
+    if model is None:
+        try:
+            model = joblib.load('crop_recommendation_model.pkl')
+            minmax = joblib.load('minmax_scaler.pkl')
+            std_scaler = joblib.load('standard_scaler.pkl')
+            crop_labels = joblib.load('crop_labels.pkl')
+        except FileNotFoundError:
+            print("Model artifacts not found. Training a new model...")
+            model, minmax, std_scaler, crop_labels = train_crop_recommendation_model()
 
     features = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
     features_minmax = minmax.transform(features)
     features_scaled = std_scaler.transform(features_minmax)
 
     # Get scalar prediction and probability vector for the single sample
-    prediction = model.predict(features_scaled)           # (n_samples,) array
-    probabilities = model.predict_proba(features_scaled)  # (n_samples, n_classes) array
-    max_prob = float(np.max(probabilities)) * 100.0          # ensure Python float for formatting
+    prediction = model.predict(features_scaled)
+    probabilities = model.predict_proba(features_scaled)
+    max_prob = float(np.max(probabilities)) * 100.0
 
     # Look up crop name with an int key from the inverse mapping
-    crop_name = crop_labels[int(prediction[0])]  # Extract scalar from prediction array  
+    crop_name = crop_labels[int(prediction[0])]
 
     return crop_name, max_prob
 
+
 if __name__ == "__main__":
-    print(_("Starting training via CLI..."))
+    print("Starting training via CLI...")
     train_crop_recommendation_model()
 
     test_cases = [
@@ -178,13 +187,13 @@ if __name__ == "__main__":
         }
     ]
 
-    print(_("\nTesting prediction with sample data:"))
+    print("\nTesting prediction with sample data:")
     for i, test in enumerate(test_cases):
         crop_name, probability = predict_crop(
             test['N'], test['P'], test['K'], test['temperature'],
             test['humidity'], test['ph'], test['rainfall']
         )
-        print(_("\nTest Case %(n)d:", n=i + 1))
-        print(_("Input: %(inp)s", inp=test))
-        print(_("Predicted Crop: %(crop)s", crop=crop_name))
-        print(_("Confidence: %(p).2f%%", p=probability))
+        print(f"\nTest Case {i + 1}:")
+        print(f"Input: {test}")
+        print(f"Predicted Crop: {crop_name}")
+        print(f"Confidence: {probability:.2f}%")

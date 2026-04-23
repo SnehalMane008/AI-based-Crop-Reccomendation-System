@@ -14,7 +14,13 @@ class TestModelAccuracy:
         
         df = pd.read_csv("Crop_recommendation.csv")
         X = df.drop("label", axis=1)
-        y = df["label"]
+        
+        # Map string labels to numeric using the same encoding as model.py
+        crop_dict = {
+            'rice': 1, 'maize': 2, 'chickpea': 3, 'banana': 4, 'mango': 5, 'grapes': 6,
+            'watermelon': 7, 'apple': 8, 'orange': 9, 'cotton': 10, 'jute': 11, 'coffee': 12
+        }
+        y = df["label"].map(crop_dict)
         
         model = joblib.load("crop_recommendation_model.pkl")
         minmax = joblib.load("minmax_scaler.pkl")

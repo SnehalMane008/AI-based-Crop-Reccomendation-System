@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - KRUSHIMITRA</title>
-    
+
     <!-- Blink Style CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/blink-style.css') }}">
-    
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         .container {
             max-width: 1200px;
@@ -155,10 +156,21 @@
             animation: scaleIn 0.8s ease;
         }
 
-        .tech-card:nth-child(1) { animation-delay: 0.1s; }
-        .tech-card:nth-child(2) { animation-delay: 0.2s; }
-        .tech-card:nth-child(3) { animation-delay: 0.3s; }
-        .tech-card:nth-child(4) { animation-delay: 0.4s; }
+        .tech-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .tech-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .tech-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .tech-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
 
         .tech-card:hover {
             transform: translateY(-5px);
@@ -306,6 +318,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -317,6 +330,7 @@
                 opacity: 0;
                 transform: scale(0.9);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -328,16 +342,16 @@
             .about-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .tech-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .team-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
         }
-        
+
         @media (max-width: 480px) {
             .team-grid {
                 grid-template-columns: 1fr !important;
@@ -345,18 +359,20 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar-clean">
         <div class="nav-container">
             <a href="/" class="nav-brand">
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo" style="height: 40px; margin-right: 12px;">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo"
+                    style="height: 40px; margin-right: 12px;">
                 <div>
                     <div>KRUSHIMITRA</div>
                     <div class="tagline">जय जवान जय किसान</div>
                 </div>
             </a>
-            
+
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link">Home</a></li>
                 <li><a href="/recommend" class="nav-link">Crop Recommendation</a></li>
@@ -377,7 +393,8 @@
     <section class="about-hero">
         <div class="container">
             <h1 class="about-title">
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo" style="height: 48px; margin-right: 12px; border-radius: 8px;">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo"
+                    style="height: 48px; margin-right: 12px; border-radius: 8px;">
                 KRUSHIMITRA
             </h1>
             <p class="about-tagline">जय जवान जय किसान</p>
@@ -390,63 +407,75 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>
-                    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo" style="height: 40px; margin-right: 10px; border-radius: 4px;">
+                    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo"
+                        style="height: 40px; margin-right: 10px; border-radius: 4px;">
                     About KRUSHIMITRA
                 </h2>
                 <p>
-                    KRUSHIMITRA is a clean, user-friendly tool that recommends the best crop to grow using soil nutrients and local climate conditions. 
+                    KRUSHIMITRA is a clean, user-friendly tool that recommends the best crop to grow using soil
+                    nutrients and local climate conditions.
                     Our system analyzes multiple environmental factors to provide accurate, data-driven recommendations.
                 </p>
                 <p>
-                    Built with modern machine learning techniques and a trained ML model, KRUSHIMITRA helps farmers make informed decisions 
+                    Built with modern machine learning techniques and a trained ML model, KRUSHIMITRA helps farmers make
+                    informed decisions
                     about crop selection, ultimately improving agricultural productivity and profitability.
                 </p>
             </div>
 
             <div class="about-features">
                 <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">
-                    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo" style="width: 24px; height: 24px; margin-right: 10px; border-radius: 50%;">
+                    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="KrushiMitra Logo"
+                        style="width: 24px; height: 24px; margin-right: 10px; border-radius: 50%;">
                     Our Goal
                 </h2>
                 <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
-                    Make crop decisions easier with accurate, explainable recommendations and a clean, accessible user interface that 
+                    Make crop decisions easier with accurate, explainable recommendations and a clean, accessible user
+                    interface that
                     serves farmers across India.
                 </p>
-                
+
                 <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">
                     Key Features
                 </h2>
                 <ul class="features-list">
                     <li class="feature-item">
                         <svg class="feature-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div class="feature-text">
                             <h3>Machine Learning Powered</h3>
-                            <p>Built with advanced ML algorithms trained on extensive agricultural data from across India.</p>
+                            <p>Built with advanced ML algorithms trained on extensive agricultural data from across
+                                India.</p>
                         </div>
                     </li>
                     <li class="feature-item">
                         <svg class="feature-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div class="feature-text">
                             <h3>User-Friendly Design</h3>
-                            <p>Clean, intuitive interface designed specifically for farmers and agricultural professionals.</p>
+                            <p>Clean, intuitive interface designed specifically for farmers and agricultural
+                                professionals.</p>
                         </div>
                     </li>
                     <li class="feature-item">
                         <svg class="feature-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div class="feature-text">
                             <h3>Data-Driven Insights</h3>
-                            <p>Comprehensive analysis of soil nutrients, climate conditions, and environmental factors.</p>
+                            <p>Comprehensive analysis of soil nutrients, climate conditions, and environmental factors.
+                            </p>
                         </div>
                     </li>
                     <li class="feature-item">
                         <svg class="feature-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div class="feature-text">
                             <h3>Multi-Language Support</h3>
@@ -465,35 +494,43 @@
                 <h2 class="section-title">Technology Stack</h2>
                 <p class="section-subtitle">What makes KRUSHIMITRA special</p>
             </div>
-            
+
             <div class="tech-grid">
                 <div class="tech-card">
                     <svg class="tech-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
                     </svg>
                     <div class="tech-name">Machine Learning</div>
                     <div class="tech-description">Advanced ML algorithms for accurate predictions</div>
                 </div>
-                
+
                 <div class="tech-card">
                     <svg class="tech-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z">
+                        </path>
                     </svg>
                     <div class="tech-name">Agriculture</div>
                     <div class="tech-description">Domain expertise in farming practices</div>
                 </div>
-                
+
                 <div class="tech-card">
                     <svg class="tech-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                        </path>
                     </svg>
                     <div class="tech-name">AI-Powered</div>
                     <div class="tech-description">Intelligent recommendations using AI</div>
                 </div>
-                
+
                 <div class="tech-card">
                     <svg class="tech-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
                     </svg>
                     <div class="tech-name">Farmer-Friendly</div>
                     <div class="tech-description">Designed for ease of use</div>
@@ -502,59 +539,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                <h2 class="section-title" style="font-size: 2.25rem; color: #1e293b; margin-bottom: 0.5rem;">Our Team</h2>
-                <p class="section-subtitle" style="color: #64748b; font-size: 1.125rem;">The brilliant minds behind KRUSHIMITRA</p>
-            </div>
-            
-            <div class="team-grid">
-                <!-- Team Member 1 -->
-                <div class="team-member">
-                    <div class="member-avatar" style="background: #f3f4f6; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 600; color: #4b5563; border: 3px solid #e5e7eb;">YR</div>
-                    <div class="member-name" style="font-weight: 600; color: #1f2937; margin-bottom: 0.25rem; text-align: center;">Yash Raut</div>
-                    <div class="member-role" style="color: #6b7280; font-size: 0.875rem; text-align: center;">Developer</div>
-                </div>
-
-                <!-- Team Member 2 -->
-                <div class="team-member">
-                    <div class="member-avatar" style="background: #f3f4f6; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 600; color: #4b5563; border: 3px solid #e5e7eb;">SS</div>
-                    <div class="member-name" style="font-weight: 600; color: #1f2937; margin-bottom: 0.25rem; text-align: center;">Saidatta Sabale</div>
-                    <div class="member-role" style="color: #6b7280; font-size: 0.875rem; text-align: center;">Developer</div>
-                </div>
-
-                <!-- Team Member 3 -->
-                <div class="team-member">
-                    <div class="member-avatar" style="background: #f3f4f6; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 600; color: #4b5563; border: 3px solid #e5e7eb;">KR</div>
-                    <div class="member-name" style="font-weight: 600; color: #1f2937; margin-bottom: 0.25rem; text-align: center;">Krushna Renuke</div>
-                    <div class="member-role" style="color: #6b7280; font-size: 0.875rem; text-align: center;">Developer</div>
-                </div>
-
-                <!-- Team Member 4 -->
-                <div class="team-member">
-                    <div class="member-avatar" style="background: #f3f4f6; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 600; color: #4b5563; border: 3px solid #e5e7eb;">SC</div>
-                    <div class="member-name" style="font-weight: 600; color: #1f2937; margin-bottom: 0.25rem; text-align: center;">Shravani Chidrawar</div>
-                    <div class="member-role" style="color: #6b7280; font-size: 0.875rem; text-align: center;">Developer</div>
-                </div>
-
-                <!-- Team Member 5 - Pranav Ladkat -->
-                <div class="team-member">
-                    <div class="member-avatar" style="background: #f3f4f6; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 600; color: #4b5563; border: 3px solid #e5e7eb;">PL</div>
-                    <div class="member-name" style="font-weight: 600; color: #1f2937; margin-bottom: 0.25rem; text-align: center;">Pranav Ladkat</div>
-                    <div class="member-role" style="color: #6b7280; font-size: 0.875rem; text-align: center;">Developer</div>
-                </div>
-
-                <!-- Team Member 6 - Pratik Khatke -->
-                <div class="team-member">
-                    <div class="member-avatar" style="background: #f3f4f6; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 600; color: #4b5563; border: 3px solid #e5e7eb;">PK</div>
-                    <div class="member-name" style="font-weight: 600; color: #1f2937; margin-bottom: 0.25rem; text-align: center;">Pratik Khatke</div>
-                    <div class="member-role" style="color: #6b7280; font-size: 0.875rem; text-align: center;">Developer</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <script>
@@ -582,4 +566,5 @@
         });
     </script>
 </body>
+
 </html>

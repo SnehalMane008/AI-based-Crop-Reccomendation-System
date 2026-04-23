@@ -310,4 +310,4 @@ if __name__ == '__main__':
         print("Model not found. Training new model...")
         train_crop_recommendation_model()
     
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
