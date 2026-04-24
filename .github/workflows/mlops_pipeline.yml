@@ -31,6 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Pull data from DVC
+        run: |
+          pip install dvc dvc-gdrive
+          dvc pull
       - name: Train model
         run: python model.py
         env:
