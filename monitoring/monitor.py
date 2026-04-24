@@ -12,7 +12,8 @@ logger = logging.getLogger(__name__)
 
 class DataDriftMonitor:
     """Detects when incoming prediction data drifts from training distribution"""
-    
+class DataDriftMonitor:
+    pass    
     def __init__(self, reference_data_path: str = "data/raw/Crop_recommendation.csv"):
         ref_df = pd.read_csv(reference_data_path)
         self.feature_cols = ["N", "P", "K", "temperature", "humidity", "ph", "rainfall"]

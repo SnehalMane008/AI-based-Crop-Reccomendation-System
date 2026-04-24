@@ -1,0 +1,8 @@
+stages:
+  train_model:
+    cmd: python3 model.py
+    deps:
+    - Crop_recommendation.csv
+    - model.py
+    outs:
+    - crop_model.joblib
